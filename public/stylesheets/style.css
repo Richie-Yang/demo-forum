@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+main {
+  /* outline: 3px solid tomato; */
+  width: 85vw;
+  max-width: 500px;
+  height: 70vh;
+  margin: 4vh auto;
+  padding: 5px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 10vh;
+  width: 100vw;
+}
+
+.index-section {
+  border: 3px solid gainsboro;
+  height: 95%;
+  border-radius: 5px;
+}
+
+.index-section p {
+  margin: 0;
+}
+
+#comment-floating-textarea {
+  height: 25vh;
+  min-height: 20vh;
+  max-height: 45vh;
+}
+
+.detail-section form button {
+  margin-top: 5px;
+}
+
+ul.list-group {
+  height: 100%;
+  background-color: whitesmoke;
+  overflow-y: scroll;
+}
+
+footer {
+  position: fixed;
+  bottom: -75px;
+  height: 150px;
+  transition: bottom .5s;
+}
+
+footer:hover {
+  bottom: -25px;
+}
+
+.footer-content {
+  height: 100%;
+  padding: 15px;
+}
+
+.fa-heart {
+  color: red;
+}
+
+.footer-arrow-signs .fa-chevron-down:nth-child(2) {
+  position: relative;
+  top: -10px;
+}
+
+.footer-social-links {
+  font-size: 1.5rem;
+}
+
+.footer-social-links .fab {
+  margin: 0 5px;
+}
+
+.main-shorten-section h1 span, #footer-link-facebook {
+  color: lightskyblue;
+}
+
+.main-shorten-section .fa-search, #footer-link-github {
+  color: aqua;
+}
+
+.main-shorten-section h1, #footer-link-medium {
+  color: aquamarine;
+}

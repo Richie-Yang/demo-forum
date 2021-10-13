@@ -1,0 +1,24 @@
+<section class="detail-section">
+  <h1>Detail Page</h1>
+  <form action="/forum/{{comment._id}}/detail" method="POST" class="d-flex flex-column justify-content-between">
+
+    <div class="form-floating mb-2">
+      <input type="text" class="form-control" id="comment-floating-input" placeholder="Comment Title" name="title" value="{{comment.title}}">
+      <label for="comment-floating-input">Title</label>
+    </div>
+
+    <div class="form-floating mb-2">
+      <textarea class="form-control" placeholder="Leave a comment here" id="comment-floating-textarea"
+        name="comment">{{comment.comment}}</textarea>
+      <label for="comment-floating-textarea">Comment</label>
+    </div>
+
+    <h6 class="mb-4">Last updated at {{comment.updated_at}}</h6>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+  <form action="/forum/{{comment._id}}/delete" method="POST">
+    <button type="submit" class="btn btn-danger mt-1 w-100">Delete</button>
+  </form>
+  <a href="/" class="btn btn-secondary mt-1 w-100">Back</a>
+</section>
