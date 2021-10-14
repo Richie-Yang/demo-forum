@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const Forum = require('./models/forum')
+const regexModule = require('./regexModule')
 
 const app = express()
 const port = 3000
@@ -44,16 +45,7 @@ app.get('/', (req, res) => {
   Forum.find()
       .lean()
       .then(comments => {
-        comments.forEach((comment, index, array) => {
-          const commentRegex = /(.{1,20})/
-          const commentResult = commentRegex.exec(comment.comment)[1]
-          array[index]['brief_comment'] = `${commentResult}......`
-
-          const timeRegex = /(\w{1,5}\s\w{1,5}\s\d{2}\s\d{4}\s\d{2}\:\d{2}\:\d{2})/
-          const timeResult = timeRegex.exec(comment.created_at)[1]
-          array[index]['brief_updated_at'] = timeResult
-        })
-
+        regexModule(comments)
         res.render('index', { comments })
       })
       .catch(error => console.log(error))
@@ -102,6 +94,26 @@ app.post('/forum/:id/delete', (req, res) => {
     .then(comment => comment.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
+})
+
+// search action
+app.get('/forum/search', (req, res) => {
+  console.log(req.query)
+  const keyword = req.query.keyword.trim()
+  let result
+
+  Forum.find()
+      .lean()
+      .then(comments => {
+        result = comments.filter(comment => {
+          return comment.title.trim().toLowerCase().includes(keyword.toLowerCase())
+        })
+      })
+      .then(() => {
+        regexModule(result)
+        res.render('index', { comments: result })
+      })
+      .catch(error => console.log(error))
 })
 
 ////////// Route Config Section Ends Here //////////
