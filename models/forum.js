@@ -6,6 +6,7 @@ const forumSchema = new Schema({
       type: String,
       required: true,
     },
+    image: String,
     comment: {
       type: String,
       required: true

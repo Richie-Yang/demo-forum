@@ -40,11 +40,15 @@ footer {
 #comment-floating-textarea {
   height: 25vh;
   min-height: 20vh;
-  max-height: 45vh;
+  max-height: 30vh;
+}
+
+.detail-section {
+  min-height: 110vh;
 }
 
 .detail-section form button {
-  margin-top: 5px;
+  margin: 5px 0 5px 0;
 }
 
 ul.list-group {
@@ -96,4 +100,15 @@ footer:hover {
 
 .main-shorten-section h1, #footer-link-medium {
   color: aquamarine;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  main {
+    max-width: unset;
+  }
+
+  .detail-section {
+    min-height: 160vh;
+  }
 }

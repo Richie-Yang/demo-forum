@@ -9,14 +9,17 @@
 <section class="index-section">
   <ul class="list-group">
     {{#each comments}}
-      <li class="list-group-item ">
-        <h5>{{this.title}}</h5>
-        <div class="d-flex justify-content-between align-items-center">
-          <div>
-            <p>{{this.brief_comment}}</p>
-            <p class="text-secondary">{{this.brief_updated_at}}</p>
+      <li class="list-group-item d-flex justify-content-between">
+        <img class="w-25 mx-3 d-none d-lg-block" src="{{this.image}}" alt="image">
+        <div class="flex-grow-1">
+          <h5>{{this.title}}</h5>
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <p>{{this.brief_comment}}</p>
+              <p class="text-secondary">{{this.brief_updated_at}}</p>
+            </div>
+            <a href="/forum/{{this._id}}/detail" class="btn btn-info text-light align-self-end">Detail</a>
           </div>
-          <a href="/forum/{{this._id}}/detail" class="btn btn-info text-light align-self-end">Detail</a>
         </div>
       </li>
     {{/each}}

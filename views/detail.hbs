@@ -8,6 +8,13 @@
     </div>
 
     <div class="form-floating mb-2">
+      <input type="text" class="form-control" id="comment-floating-input" placeholder="Comment Title" name="image"
+        value="{{comment.image}}">
+      <label for="comment-floating-input">Image</label>
+      <img class="w-100 mt-2" src="{{comment.image}}" alt="image">
+    </div>
+
+    <div class="form-floating mb-2">
       <textarea class="form-control" placeholder="Leave a comment here" id="comment-floating-textarea"
         name="comment">{{comment.comment}}</textarea>
       <label for="comment-floating-textarea">Comment</label>

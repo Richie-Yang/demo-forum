@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
+const forum = require('../forum')
 const Forum = require('../forum')
+const dummyData = require('./forumData')
 
 mongoose.connect(
   'mongodb://localhost/demo-forum',
@@ -18,12 +20,9 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongodb connected')
 
-  for (let i = 0; i <= 10; i++) {
-    Forum.create({
-      title: `title-${i}`,
-      comment: `comment-${i}`
-    })
-  }
+  dummyData.results.forEach(({ title, image, comment}) => {
+    forum.create({ title, image, comment})
+  })
 
   console.log('done')
 })
