@@ -6,12 +6,13 @@ const Forum = require('./models/forum')
 const regexModule = require('./regexModule')
 
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/demo-forum'
 
 
 ////////// MongoDB Config Section Starts Here //////////
 mongoose.connect(
-  'mongodb://localhost/demo-forum',
+  MONGODB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -118,6 +119,6 @@ app.get('/forum/search', (req, res) => {
 ////////// Route Config Section Ends Here //////////
 
 
-app.listen(port, () => {
-  console.log(`Express server is listening at 127.0.0.1:${port}`)
+app.listen(PORT, () => {
+  console.log(`Express server is listening at 127.0.0.1:${PORT}`)
 })
