@@ -98,7 +98,6 @@ app.post('/forum/:id/delete', (req, res) => {
 
 // search action
 app.get('/forum/search', (req, res) => {
-  console.log(req.query)
   const keyword = req.query.keyword.trim()
   let result
 
