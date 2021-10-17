@@ -13,7 +13,7 @@ router.get('/comment', (req, res) => {
 // post comment page (SQL create operation)
 router.post('/comment', (req, res) => {
   const { title, comment } = req.body
-  return Forum.create({ title, comment })
+  return Forum.create({ title, image, comment })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
