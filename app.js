@@ -1,33 +1,12 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
-const routes = require('./routes')
 
 const app = express()
 const PORT = process.env.PORT || 3000
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/demo-forum'
 
-
-////////// MongoDB Config Section Starts Here //////////
-mongoose.connect(
-  MONGODB_URI,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }
-)
-
-const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('mongodb error')
-})
-
-db.once('open', () => {
-  console.log('mongodb connected')
-})
-////////// MongoDB Config Section Ends Here //////////
+require('./config/mongoose')
+const routes = require('./routes')
 
 
 ////////// Engine Config Section Starts Here //////////
@@ -40,7 +19,6 @@ app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(routes)
-
 ////////// Route Config Section Ends Here //////////
 
 

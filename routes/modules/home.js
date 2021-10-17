@@ -4,6 +4,7 @@ const router = express.Router()
 const Forum = require('../../models/forum')
 const regexModule = require('../../regexModule')
 
+
 // get index page
 router.get('/', (req, res) => {
   Forum.find()
