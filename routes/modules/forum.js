@@ -28,7 +28,7 @@ router.get('/:id/detail', (req, res) => {
 })
 
 // post detail page (SQL update operation)
-router.post('/:id/detail', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id
   const { title, comment } = req.body
   return Forum.findById(id)
@@ -42,7 +42,7 @@ router.post('/:id/detail', (req, res) => {
 })
 
 // post detail page (SQL delete operation)
-router.post('/:id/delete', (req, res) => {
+router.delete('/:id', (req, res) => {
   const id = req.params.id
   return Forum.findById(id)
     .then(comment => comment.remove())

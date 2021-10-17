@@ -1,6 +1,6 @@
 <section class="detail-section">
   <h1>Detail Page</h1>
-  <form action="/forum/{{comment._id}}/detail" method="POST" class="d-flex flex-column justify-content-between">
+  <form action="/forum/{{comment._id}}?_method=PUT" method="POST" class="d-flex flex-column justify-content-between">
 
     <div class="form-floating mb-2">
       <input type="text" class="form-control" id="comment-floating-input" placeholder="Comment Title" name="title" value="{{comment.title}}">
@@ -24,7 +24,7 @@
 
     <button type="submit" class="btn btn-primary">Update</button>
   </form>
-  <form action="/forum/{{comment._id}}/delete" method="POST">
+  <form action="/forum/{{comment._id}}?_method=DELETE" method="POST">
     <button type="submit" class="btn btn-danger mt-1 w-100">Delete</button>
   </form>
   <a href="/" class="btn btn-secondary mt-1 w-100">Back</a>
